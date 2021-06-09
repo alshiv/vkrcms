@@ -12,7 +12,7 @@ import Content from './Content.vue'
 export default {
   data() {
     return {
-      init: true,
+      init: false,
       logined: false,
     };
   },

@@ -47,7 +47,6 @@
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
-
             <div class="flex flex-col pt-4">
               <label for="confirm-password" class="text-lg"
                 >Подтвердите пароль</label
@@ -81,7 +80,7 @@
       <div class="w-1/2 shadow-2xl">
         <img
           class="object-cover w-full h-screen hidden md:block"
-          src="https://sun9-45.userapi.com/impf/c850624/v850624079/10650d/wp6nULiklBA.jpg?size=1920x1080&quality=96&proxy=1&sign=8651d95340a57d8fccbc7c675d397fcd&type=album"
+          src="https://sun9-29.userapi.com/impf/c630722/v630722242/336d3/MME5yHtjFkM.jpg?size=2160x2160&quality=96&sign=b2101212963c915a152fc4701f524331&type=album"
         />
       </div>
     </div>

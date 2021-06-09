@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <div>
       <component :is="currentComponent ? currentComponent : 'stats'" />
     </div>
   </main>
@@ -14,8 +14,10 @@ export default {
     current: String,
   },
   components: {
-    UsersTable: defineAsyncComponent(() => import("./UsersTable.vue")),
+    UsersController: defineAsyncComponent(() => import("./UsersController.vue")),
     Stats: defineAsyncComponent(() => import("./Stats.vue")),
+    PageController: defineAsyncComponent(() => import("./PageController.vue")),
+    SettingsController: defineAsyncComponent(() => import("./SettingsController.vue")),
   },
   computed: {
       currentComponent: function() {

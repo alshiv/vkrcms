@@ -1,11 +1,9 @@
 <template>
-  <tiptap/>
+  
 </template>
 
 <script>
-import Tiptap from '../Base/Tiptap.vue'
 export default {
-  components: { Tiptap },
 
 }
 </script>

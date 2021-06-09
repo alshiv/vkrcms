@@ -1,32 +1,20 @@
 <template>
-  <component :is="currentTemplate"/>
+  <component :is="currentTemplate" />
 </template>
 
 <script>
 import { defineAsyncComponent } from "vue";
-import axios from "axios";
 
 export default {
   data() {
     return {
       currentTemplate: "base-template",
-      config: {},
     };
   },
   components: {
-    baseTemplate: defineAsyncComponent(() =>
-      import("../templates/baseTemplate.vue")
+    BaseTemplate: defineAsyncComponent(() =>
+      import("../templates/BaseTemplate.vue")
     ),
-  },
-  created() {
-    axios
-      .get("http://localhost:3001/config")
-      .then((res) => {
-        this.config = res.data.config;
-      })
-      .catch((err) => {
-        console.lor(err);
-      });
   },
 };
 </script>

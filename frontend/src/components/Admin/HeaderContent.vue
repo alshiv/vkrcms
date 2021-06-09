@@ -1,6 +1,6 @@
 <template>
   <nav class="bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="smx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
           <div class="flex-shrink-0">
@@ -80,15 +80,25 @@ export default {
     return {
       links: [
         {
-          name: "Главная",
+          name: "Статистика",
           active: true,
           componentName: 'stats'
         },
         {
           name: "Пользователи",
           active: false,
-          componentName: 'users-table'
+          componentName: 'users-controller'
         },
+        {
+          name: "Управление контентом",
+          active: false,
+          componentName: 'page-controller'
+        },
+        {
+          name: "Настройки",
+          active: false,
+          componentName: 'settings-controller'
+        }
       ],
       active: false,
     };

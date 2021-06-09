@@ -1,29 +1,84 @@
 <template>
-  <div class="container mx-auto h-full flex flex-1 justify-center items-center">
-    <div class="w-full max-w-xl">
-      <div class="leading-loose">
-        <div class="max-w-xl m-4 p-10 bg-white rounded shadow-xl">
-          <div>
-            <p class="text-gray-800 font-medium text-center text-lg">
-              Добро пожаловать в VKRCMS!
-            </p>
-          </div>
-          <div class="mt-2">
-            <p class="text-gray-800 font-medium text-center text-lg">
-              Для дальнейшей настройки необходимо
-              <router-link class="underline hover:text-blue-800" to="/login">
-                авторизироваться
-              </router-link>
-              или
-              <router-link class="underline hover:text-blue-800" to="/signup">
-                зарегистрироваться
-              </router-link>
-            </p>
-          </div>
+  <section class="text-gray-600 body-font">
+    <div
+      class="
+        container
+        mx-auto
+        flex
+        px-5
+        py-24
+        md:flex-row
+        flex-col
+        items-center
+      "
+    >
+      <div
+        class="
+          lg:flex-grow
+          md:w-1/2
+          lg:pr-24
+          md:pr-16
+          flex flex-col
+          md:items-start
+          md:text-left
+          mb-16
+          md:mb-0
+          items-center
+          text-center
+        "
+      >
+        <h1
+          class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"
+        >
+          Добро пожаловать в VKRCMS!
+        </h1>
+        <p class="mb-8 leading-relaxed">Для дальнейшей настройки необходимо</p>
+        <div class="flex justify-center">
+          <router-link
+            class="
+              inline-flex
+              text-gray-700
+              bg-gray-100
+              border-0
+              py-2
+              px-6
+              focus:outline-none
+              hover:bg-gray-200
+              rounded
+              text-lg
+            "
+            to="/login"
+            >авторизироваться</router-link
+          >
+          <label>или</label>
+          <router-link
+            class="
+              ml-4
+              inline-flex
+              text-white
+              bg-indigo-500
+              border-0
+              py-2
+              px-6
+              focus:outline-none
+              hover:bg-indigo-600
+              rounded
+              text-lg
+            "
+            to="/signup"
+            >зарегистрироваться</router-link
+          >
         </div>
       </div>
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img
+          class="object-cover object-center rounded"
+          alt="hero"
+          src="https://dummyimage.com/720x600"
+        />
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

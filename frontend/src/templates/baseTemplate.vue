@@ -1,23 +1,31 @@
 <template>
-  <div>
-    <!-- <component :is="firstComponent"/>
-    <component :is="secondComponent"/>
-    <component :is="thirdComponent"/> -->
-    {{config}}
+  <div class="flex flex-col h-screen">
+    <component :is="config.Header" />
+    <component :is="config.Main" />
+    <component :is="config.Footer" />
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+import { defineAsyncComponent } from "vue";
 
 export default {
   data() {
     return {
       config: {},
-      firstComponent: '',
-      secondComponent: '',
-      thirdComponent: ''
     };
+  },
+  components: {
+    DefaultHeader: defineAsyncComponent(() =>
+      import("./default/DefaultHeader.vue")
+    ),
+    DefaultMain: defineAsyncComponent(() =>
+      import("./default/DefaultMain.vue")
+    ),
+    DefaultFooter: defineAsyncComponent(() =>
+      import("./default/DefaultFooter.vue")
+    ),
   },
   methods: {
     kebabize(str) {
@@ -34,14 +42,19 @@ export default {
       axios
         .get("http://localhost:3001/config")
         .then((res) => {
-          this.config = res.data.config;
+          for (var key in res.data.config.components) {
+            Object.assign(this.config, {
+              [key]: this.kebabize(res.data.config.components[key]),
+            });
+          }
+          console.log(this.config);
         })
         .catch((err) => {
           console.lor(err);
         });
     },
   },
-  created(){
+  created() {
     this.getComponents();
   },
 };

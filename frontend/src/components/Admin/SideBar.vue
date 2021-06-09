@@ -1,22 +1,36 @@
 <template>
-  <aside class="relative bg-gray-800 h-screen w-64 hidden sm:block shadow-xl">
-    <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
-      <router-link to="/admin" class="bg-black text-white font-bold text-xl p-4"
-        >VKRCMS</router-link
-      >
-    </div>
+  <aside class="relative bg-gray-900 h-screen w-48 hidden sm:block shadow-xl">
     <nav class="text-white text-base font-semibold pt-3">
-      <button
-        class="flex items-center active-nav-link text-white py-4 pl-6 nav-item"
+      <a
+        v-for="link in links"
+        :key="link"
+        class="flex items-center active-nav-link text-white hover:text-gray-300 rounded-none py-4 pl-6 nav-item"
+        :class="{ 'bg-gray-700 text-gray-300': link.active }"
+        @click="loadFromLink(link)"
       >
-        Dashboard
-      </button>
+        {{ link.name }}
+      </a>
     </nav>
   </aside>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    links: Array,
+  },
+  methods: {
+    loadFromLink(link) {
+      this.links.map((link) => {
+        link.active = false;
+      });
+      link.active = true;
+      this.$emit("loadComponent", {
+        toMountComponent: link.componentName,
+      });
+    },
+  },
+};
 </script>
 
 <style></style>

@@ -10,7 +10,7 @@
             type="text"
             name="username"
             id="username"
-            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md px-3 py-2"
             v-model="user.name"
           />
         </div>
@@ -22,7 +22,7 @@
             type="text"
             name="email"
             id="email"
-            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md px-3 py-2"
             v-model="user.email"
           />
         </div>
@@ -37,7 +37,8 @@
             v-model="user.is_active"
           />
           <span
-            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
+            :class="[!user.is_active ? 'bg-red-600 text-white': 'bg-green-100 text-green-800']"
           >
             {{ user.is_active ? "Активен" : "Неактивен" }}
           </span>
@@ -63,8 +64,15 @@
           type="submit"
           class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
-          Save
+          Сохранить
         </button>
+        <button
+            type="button"
+            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+            @click="close"
+          >
+            Отмена
+          </button>
       </div>
     </div>
   </form>
@@ -101,6 +109,10 @@ export default {
           console.log(err);
         });
     },
+    close(e) {
+      e.preventDefault();
+      this.$emit('closeModal');
+    }
   },
 };
 </script>
