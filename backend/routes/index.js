@@ -48,9 +48,9 @@ router.get("/config", async (req, res, next) => {
   try {
     const config = {
       components: {
-        HeaderTest: 'HeaderTest',
-        MainTest: 'HeaderTest',
-        FooterTest: 'HeaderTest'
+        Header: "DefaultHeader",
+        Main: "DefaultMain",
+        Footer: "DefaultFooter",
       },
     };
     res.status(200).json({
