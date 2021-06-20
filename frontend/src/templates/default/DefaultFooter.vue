@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-gray-400 bg-gray-900 body-font">
+  <footer class="text-gray-600 body-font">
     <div
       class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col"
     >
@@ -11,7 +11,7 @@
           items-center
           md:justify-start
           justify-center
-          text-white
+          text-gray-900
         "
       >
         <svg
@@ -21,7 +21,7 @@
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          class="w-10 h-10 text-white p-2 bg-red-500 rounded-full"
+          class="w-10 h-10 text-white p-2 bg-blue-500 rounded-full"
           viewBox="0 0 24 24"
         >
           <path
@@ -32,10 +32,10 @@
       </a>
       <p
         class="
-          text-sm text-gray-400
+          text-sm text-gray-500
           sm:ml-4
           sm:pl-4
-          sm:border-l-2 sm:border-gray-800
+          sm:border-l-2 sm:border-gray-200
           sm:py-2
           sm:mt-0
           mt-4

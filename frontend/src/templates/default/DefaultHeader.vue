@@ -1,5 +1,5 @@
 <template>
-  <header class="text-gray-400 bg-gray-900 body-font">
+  <header class="text-gray-600 body-font">
     <div
       class="
         container
@@ -12,7 +12,15 @@
       "
     >
       <a
-        class="flex title-font font-medium items-center text-white mb-4 md:mb-0"
+        class="
+          flex
+          title-font
+          font-medium
+          items-center
+          text-gray-900
+          mb-4
+          md:mb-0
+        "
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +29,7 @@
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          class="w-10 h-10 text-white p-2 bg-red-500 rounded-full"
+          class="w-10 h-10 text-white p-2 bg-blue-500 rounded-full"
           viewBox="0 0 24 24"
         >
           <path
@@ -36,31 +44,27 @@
           md:ml-4
           md:py-1
           md:pl-4
-          md:border-l md:border-gray-700
+          md:border-l md:border-gray-400
           flex flex-wrap
           items-center
           text-base
           justify-center
         "
       >
-        <router-link class="mr-5 hover:text-white" to="/features"
-          >Блог</router-link
-        >
-        <router-link class="mr-5 hover:text-white" to="/showcase"
-          >Магазин</router-link
-        >
+        <a v-for="link in links" :key="link._id" class="mr-5 hover:text-gray-900" @click="pageSwitch(link)"
+          >{{link.name}}</a>
       </nav>
       <button
         v-if="user.isAdmin"
         class="
           inline-flex
           items-center
-          bg-gray-800
+          bg-gray-100
           border-0
           py-1
           px-3
           focus:outline-none
-          hover:bg-gray-700
+          hover:bg-gray-200
           rounded
           text-base
           mt-4
@@ -91,15 +95,39 @@ export default {
   data() {
     return {
       user: {},
+      links: []
     };
   },
   methods: {
+    async getPages() {
+      try {
+        await axios
+          .get("http://localhost:3001/pages")
+          .then((res) => {
+            console.log(res.data.data);
+            this.links = res.data.data;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    pageSwitch(link) {
+      this.$emit("switchPage", {
+        pageId: link._id,
+        isDetail: false
+      });
+    },
     loadUserData() {
       try {
-
-      } catch(err) {}
+      } catch (err) {}
     },
   },
+  created() {
+    this.getPages();
+  }
 };
 </script>
 

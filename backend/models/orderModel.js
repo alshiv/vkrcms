@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const PostSchema = new Schema({
+const OrderSchema = new Schema({
   name: {
     type: String,
     required: true,
   },
-  pageId: {
+  postId: {
     type: String,
     required: true
   },
@@ -18,21 +18,9 @@ const PostSchema = new Schema({
     type: String,
     required: false,
   },
-  detail: {
-    type: String,
-    required: false,
-  },
-  author: {
-      type: String,
-      required: true
-  },
   image: {
       type: String,
       required: false
-  },
-  is_active: {
-    type: Boolean,
-    default: true,
   },
   created_date: {
     type: Date,
@@ -43,6 +31,6 @@ const PostSchema = new Schema({
   },
 });
 
-const Post = mongoose.model("Post", PostSchema);
+const Order = mongoose.model("Order", OrderSchema);
 
-module.exports = Post;
+module.exports = Order;

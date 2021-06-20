@@ -1,26 +1,26 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const CMSSchema = new Schema({
+const CommentSchema = new Schema({
   name: {
     type: String,
     required: true,
   },
-  preview: {
-    type: Text,
-    required: false,
+  pageId: {
+    type: Number,
+    required: true
+  },
+  userId: {
+    type: Number,
+    required: true
   },
   detail: {
-    type: Text,
+    type: String,
     required: false,
   },
   author: {
       type: String,
       required: true
-  },
-  image: {
-      type: String,
-      required: false
   },
   is_active: {
     type: Boolean,
@@ -35,6 +35,6 @@ const CMSSchema = new Schema({
   },
 });
 
-const CMS = mongoose.model("CMS", CMSSchema);
+const Comment = mongoose.model("Comment", CommentSchema);
 
-module.exports = CMS;
+module.exports = Comment;

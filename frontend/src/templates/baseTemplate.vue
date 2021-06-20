@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col h-screen">
-    <component :is="config.Header" />
-    <component :is="config.Main" />
+    <component :is="config.Header" @switchPage="switchPage" />
+    <component :is="config.Main" :pageContent="pageContent"/>
     <component :is="config.Footer" />
   </div>
 </template>
@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       config: {},
+      pageContent: []
     };
   },
   components: {
@@ -50,8 +51,23 @@ export default {
           console.log(this.config);
         })
         .catch((err) => {
-          console.lor(err);
+          console.log(err);
         });
+    },
+    async switchPage(data) {
+      try {
+        await axios
+          .get(`http://localhost:3001/posts/${data.pageId}`)
+          .then((res) => {
+            console.log(res);
+            this.pageContent = res.data.data;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
   created() {

@@ -80,9 +80,9 @@ export default {
     return {
       links: [
         {
-          name: "Статистика",
+          name: "Главная",
           active: true,
-          componentName: 'stats'
+          componentName: 'main-admin'
         },
         {
           name: "Пользователи",

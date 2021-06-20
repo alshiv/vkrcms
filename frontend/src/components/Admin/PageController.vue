@@ -32,9 +32,9 @@ export default {
           componentName: "page-edit",
         },
         {
-          name: "Комментарии",
+          name: "Заказы",
           active: false,
-          componentName: "puk",
+          componentName: "orders",
         },
       ],
       currentComponent: "",
@@ -43,6 +43,8 @@ export default {
   components: {
     SideBar,
     AddElement: defineAsyncComponent(() => import("./AddElement.vue")),
+    PageEdit: defineAsyncComponent(() => import("./PageEdit.vue")),
+    ElementEdit: defineAsyncComponent(() => import("./ElementEdit.vue"))
   },
   methods: {
     mountCurrentComponent(data) {

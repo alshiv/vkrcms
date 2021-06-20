@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const multer = require('multer');
+const upload = multer();
 const userController = require("../controllers/userController");
 const routerController = require("../controllers/routerController");
+const postController = require("../controllers/postController");
+const pageController = require("../controllers/pageController");
 
 router.post("/signup", userController.signup);
 
@@ -60,5 +64,15 @@ router.get("/config", async (req, res, next) => {
     next(error);
   }
 });
+
+router.post("/add-page", pageController.addPage);
+
+router.get("/pages", pageController.getPages);
+
+router.post("/add-element", upload.any(), postController.addPost);
+
+router.get("/posts", postController.getPosts);
+
+router.get("/posts/:pageId", postController.getPostsByPageId);
 
 module.exports = router;

@@ -20,12 +20,7 @@ export default {
           name: "Список пользователей",
           active: true,
           componentName: "users-table",
-        },
-        {
-          name: "заглушка",
-          active: false,
-          componentName: "puk",
-        },
+        }
       ],
       currentComponent: '',
     };

@@ -1,6 +1,5 @@
 <template>
   <div>
-      ГАВНО
   </div>
 </template>
 

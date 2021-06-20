@@ -2,7 +2,7 @@
   <div class="flex">
     <side-bar :links="links" @loadComponent="mountCurrentComponent"></side-bar>
     <component
-      class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8"
+      class="sssssssssmx-auto py-6 sm:px-6 lg:px-8"
       :is="currentComponent ? currentComponent : 'general-settings'"
     />
     общее - название, фавикон, почта, линки, телефон

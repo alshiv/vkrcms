@@ -1,7 +1,7 @@
 <template>
   <main>
     <div>
-      <component :is="currentComponent ? currentComponent : 'stats'" />
+      <component :is="currentComponent ? currentComponent : 'main-admin'" />
     </div>
   </main>
 </template>
@@ -15,7 +15,7 @@ export default {
   },
   components: {
     UsersController: defineAsyncComponent(() => import("./UsersController.vue")),
-    Stats: defineAsyncComponent(() => import("./Stats.vue")),
+    MainAdmin: defineAsyncComponent(() => import("./MainAdmin.vue")),
     PageController: defineAsyncComponent(() => import("./PageController.vue")),
     SettingsController: defineAsyncComponent(() => import("./SettingsController.vue")),
   },

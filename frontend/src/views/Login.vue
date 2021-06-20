@@ -94,13 +94,13 @@ export default {
         password: this.user.password,
       };
 
-      console.log(user.password)
-
       axios
         .post("http://localhost:3001/login", user)
         .then((res) => {
           console.log(res);
           localStorage.setItem("token", res.data.accessToken);
+          localStorage.setItem("user_id", res.data.data.userId);
+          localStorage.setItem("username", res.data.data.username);
           this.$router.push("/admin");
         })
         .catch((err) => {
