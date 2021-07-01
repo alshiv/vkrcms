@@ -51,11 +51,11 @@
           justify-center
         "
       >
-        <a v-for="link in links" :key="link._id" class="mr-5 hover:text-gray-900" @click="pageSwitch(link)"
+        <a v-for="link in links" :key="link._id" class="mr-5 hover:text-gray-900" @click="pageSwitch(link)" :isDetail="isDetailActive"
           >{{link.name}}</a>
       </nav>
-      <button
-        v-if="user.isAdmin"
+      <router-link
+        v-if="user === '6034f2595ccaaf574845bb26'"
         class="
           inline-flex
           items-center
@@ -70,6 +70,7 @@
           mt-4
           md:mt-0
         "
+        to="/admin"
       >
         Панель администрирования
         <svg
@@ -83,7 +84,7 @@
         >
           <path d="M5 12h14M12 5l7 7-7 7"></path>
         </svg>
-      </button>
+      </router-link>
     </div>
   </header>
 </template>
@@ -92,9 +93,12 @@
 import axios from "axios";
 
 export default {
+  props: {
+    isDetail: Boolean
+  },
   data() {
     return {
-      user: {},
+      user: localStorage.getItem("user_id"),
       links: []
     };
   },
@@ -125,6 +129,11 @@ export default {
       try {
       } catch (err) {}
     },
+  },
+  computed: {
+    isDetailActive: function() {
+      return this.isDetail;
+    }
   },
   created() {
     this.getPages();

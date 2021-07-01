@@ -21,11 +21,11 @@ export default {
           active: true,
           componentName: "general-settings",
         },
-        {
-          name: "Шаблоны",
-          active: false,
-          componentName: "template-settings",
-        },
+        // {
+        //   name: "Шаблоны",
+        //   active: false,
+        //   componentName: "template-settings",
+        // },
         // {
         //     name: "Экспорт/Импорт",
         //     active: false,

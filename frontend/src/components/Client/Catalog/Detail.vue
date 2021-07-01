@@ -18,7 +18,7 @@
           <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">
             {{ element.name }}
           </h1>
-          <p class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl m-5 focus:outline-none leading-relaxed pb-5 border-b-2 border-gray-100 mb-5" v-html="element.detail"/>
+          <p class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl m-5 focus:outline-none leading-relaxed pb-5 border-b-2 border-gray-100 mb-5" v-html="element.detail" style="word-break: break-word;"/>
           <div class="flex">
             <span class="title-font font-medium text-2xl text-gray-900">{{
               element.price

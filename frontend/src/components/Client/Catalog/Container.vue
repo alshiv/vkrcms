@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="text-gray-600 body-font" v-if="!isDetail">
+    <section class="text-gray-600 body-font" v-if="!isDetailActive">
       <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap -m-4">
           <single
@@ -24,11 +24,12 @@ import {defineAsyncComponent} from 'vue';
 export default {
   props: {
     elements: Array,
+    isDetail: Boolean
   },
   data() {
     return {
-      isDetail: false,
-      element: {}
+      element: {},
+      isDetailActive: this.isDetail
     };
   },
   components: {
@@ -37,10 +38,11 @@ export default {
   },
   methods: {
     switchToDetail(data) {
-      this.isDetail = !this.isDetail;
+      this.$emit('updatedetail', true);
+      this.isDetailActive = data.isDetail;
       this.element = data.element;
     },
-  },
+  }
 };
 </script>
 

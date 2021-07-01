@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     openDetail() {
-      this.$emit("openDetail", { element: this.element });
+      this.$emit("openDetail", { element: this.element, isDetail: true});
     },
   },
 };

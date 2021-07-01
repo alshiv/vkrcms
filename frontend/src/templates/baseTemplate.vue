@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col h-screen">
-    <component :is="config.Header" @switchPage="switchPage" />
-    <component :is="config.Main" :pageContent="pageContent"/>
+    <component :is="config.Header" @switchPage="switchPage" v-model="isDetail"/>
+    <component :is="config.Main" :pageContent="pageContent" @updateHeaderDetail="updateHeaderDetail"/>
     <component :is="config.Footer" />
   </div>
 </template>
@@ -14,7 +14,8 @@ export default {
   data() {
     return {
       config: {},
-      pageContent: []
+      pageContent: [],
+      isDetail: false
     };
   },
   components: {
@@ -60,6 +61,7 @@ export default {
           .get(`http://localhost:3001/posts/${data.pageId}`)
           .then((res) => {
             console.log(res);
+            this.isDetail = false;
             this.pageContent = res.data.data;
           })
           .catch((err) => {
@@ -69,6 +71,9 @@ export default {
         console.log(err);
       }
     },
+    updateHeaderDetail(value) {
+      this.isDetail = value;
+    }
   },
   created() {
     this.getComponents();

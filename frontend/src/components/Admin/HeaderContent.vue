@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <router-link to="/admin" class="text-white font-bold text-xl p-4"
+            <router-link to="/" class="text-white font-bold text-xl p-4"
               >VKRCMS</router-link
             >
           </div>

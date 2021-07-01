@@ -31,11 +31,11 @@ export default {
           active: false,
           componentName: "page-edit",
         },
-        {
-          name: "Заказы",
-          active: false,
-          componentName: "orders",
-        },
+        // {
+        //   name: "Заказы",
+        //   active: false,
+        //   componentName: "orders",
+        // },
       ],
       currentComponent: "",
     };

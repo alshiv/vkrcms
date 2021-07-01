@@ -1,6 +1,6 @@
 <template>
   <div class="flex-auto">
-    <container :elements="pageContent"/>
+    <container :elements="pageContent"  @updatedetail="updatedetail"/>
   </div>
 </template>
 
@@ -13,6 +13,11 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    updatedetail(value) {
+      this.$emit('updateHeaderDetail', value);
+    },
   },
   components: {
     Container: defineAsyncComponent(() => import('../../components/Client/Catalog/Container.vue')),
