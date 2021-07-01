@@ -106,6 +106,7 @@ export default {
           .then((res) => {
             console.log(res.data.data);
             this.links = res.data.data;
+            this.pageSwitch(this.links[0]);
           })
           .catch((err) => {
             console.log(err);

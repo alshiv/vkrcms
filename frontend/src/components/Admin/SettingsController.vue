@@ -5,7 +5,6 @@
       class="sssssssssmx-auto py-6 sm:px-6 lg:px-8"
       :is="currentComponent ? currentComponent : 'general-settings'"
     />
-    общее - название, фавикон, почта, линки, телефон
   </div>
 </template>
 
@@ -27,11 +26,11 @@ export default {
           active: false,
           componentName: "template-settings",
         },
-        {
-            name: "Экспорт/Импорт",
-            active: false,
-            componentName: "export-import"
-        }
+        // {
+        //     name: "Экспорт/Импорт",
+        //     active: false,
+        //     componentName: "export-import"
+        // }
       ],
       currentComponent: '',
     };

@@ -1,9 +1,6 @@
 <template>
   <div class="flex-auto">
-    <div v-if="isFirstPage">TAK</div>
-    <div v-if="!isFirstPage">
-      <container :elements="pageContent"/>
-    </div>
+    <container :elements="pageContent"/>
   </div>
 </template>
 
@@ -20,19 +17,7 @@ export default {
   components: {
     Container: defineAsyncComponent(() => import('../../components/Client/Catalog/Container.vue')),
     PostsContainer: defineAsyncComponent(() => import('../../components/Client/Posts/PostsContainer.vue'))
-  },
-  computed: {
-    isFirstPage() {
-      if (
-        Object.keys(this.pageContent).length === 0 &&
-        this.pageContent.constructor === Object
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-  },
+  }
 };
 </script>
 

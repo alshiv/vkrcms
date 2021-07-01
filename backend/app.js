@@ -5,6 +5,7 @@ const path = require("path");
 const User = require("./models/userModel");
 const routes = require("./routes/index.js");
 const cors = require("cors");
+const fileUpload = require('express-fileupload');
 
 require("dotenv").config({
   path: path.join(__dirname, "./.env"),
@@ -22,6 +23,7 @@ mongoose
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
+app.use(fileUpload());
 
 app.use(async (req, res, next) => {
   if (req.headers["x-access-token"]) {

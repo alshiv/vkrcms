@@ -1,7 +1,7 @@
 <template>
   <main>
     <div>
-      <component :is="currentComponent ? currentComponent : 'main-admin'" />
+      <component :is="currentComponent ? currentComponent : 'users-controller'" />
     </div>
   </main>
 </template>

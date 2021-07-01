@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const multer = require('multer');
-const upload = multer();
+// const multer = require('multer');
+// const upload = multer({dest: './uploads/'});
 const userController = require("../controllers/userController");
 const routerController = require("../controllers/routerController");
 const postController = require("../controllers/postController");
@@ -69,7 +69,7 @@ router.post("/add-page", pageController.addPage);
 
 router.get("/pages", pageController.getPages);
 
-router.post("/add-element", upload.any(), postController.addPost);
+router.post("/add-element", postController.addPost);
 
 router.get("/posts", postController.getPosts);
 

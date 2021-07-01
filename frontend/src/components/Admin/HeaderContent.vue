@@ -79,14 +79,14 @@ export default {
   data() {
     return {
       links: [
-        {
-          name: "Главная",
-          active: true,
-          componentName: 'main-admin'
-        },
+        // {
+        //   name: "Главная",
+        //   active: true,
+        //   componentName: 'main-admin'
+        // },
         {
           name: "Пользователи",
-          active: false,
+          active: true,
           componentName: 'users-controller'
         },
         {

@@ -3,14 +3,17 @@ const Post = require("../models/postModel");
 exports.addPost = async (req, res, next) => {
   try {
     const { heading, modelValue, price, pageId, userId, author } = req.body;
+    const image = req.files.imagePath;
+    const imagePath = '/uploads/' + image.name;
+    image.mv('../frontend/uploads/' + image.name);
     const newPost = new Post({
       name: heading,
       detail: modelValue,
       price,
       pageId,
       userId,
-      author
-      
+      author,
+      image: imagePath
     });
     await newPost.save();
     res.status(200).json({

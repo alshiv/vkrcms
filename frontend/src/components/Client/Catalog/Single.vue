@@ -4,7 +4,7 @@
       <img
         alt="ecommerce"
         class="object-cover object-center w-full h-full block"
-        src="https://dummyimage.com/420x260"
+        :src="element.image ? element.image : 'https://dummyimage.com/420x260'"
       />
     </a>
     <div class="mt-4">
